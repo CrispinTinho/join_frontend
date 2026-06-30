@@ -1,39 +1,18 @@
-import { useState } from 'react'
-import './App.css'
-
-import AttFacil from './paginas/att-facil'
-import AttDificil from './paginas/att-dificil'
-import AttMedia from './paginas/att-media'
+import { Routes, Route } from 'react-router-dom'
+import Layout from './componentes/Layout'
+import Home from './paginas/Home'
+import Login from './paginas/Login'
+import Cadastro from './paginas/Cadastro'
 
 function App() {
- const [tela, setTela] = useState('login') 
- 
-  const renderizarTela = () => {
-    if(tela === 'att-dificil'){
-      return <AttDificil />
-    } else if (tela === 'att-media'){
-      return <AttMedia />
-    }
-      else if (tela === 'att-facil'){
-      return <AttFacil />
-    }
-  }
-
-const trocarTela = (pagina) => {
-  setTela(pagina)
-}
-
   return (
-    <>
-      <h1>Minha App</h1>
-      <button onClick={ () => trocarTela('att-dificil')}>att-dificil</button>
-      <button onClick={ () => trocarTela('att-media')}>att-media</button>
-      <button onClick={ () => trocarTela('att-facil')}>att-facil</button>
-      
-      <hr />
-
-      {renderizarTela()}
-    </>
+    <Routes>
+      <Route element={<Layout />}>
+        <Route path="/" element={<Home />} />
+        <Route path="/login" element={<Login />} />
+        <Route path="/cadastro" element={<Cadastro />} />
+      </Route>
+    </Routes>
   )
 }
 
