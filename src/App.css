@@ -14,7 +14,6 @@ body {
   position: relative;
 }
 
-/* RF08 (simplificado) - botão fixo no topo, em todas as telas, leva pro home */
 .botao-home {
   position: fixed;
   top: 16px;
